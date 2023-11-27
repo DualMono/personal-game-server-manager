@@ -95,10 +95,13 @@ SPDX-License-Identifier: MIT-0 -->
         <div class="card">
           <label for="instanceSize" >Resize:</label>
           <select name="instanceSize" id="instanceSize" style="margin-top:18px">
+            <option value="nano">Nano</option>
             <option value="micro">Micro</option>
             <option value="small">Small</option>
             <option value="medium">Medium</option>
             <option value="large">Large</option>
+            <option value="xlarge">xLarge</option>
+            <option value="twoxlarge">2xLarge</option>
           </select>
           <br>
           <button style="margin-top: 30px;" onclick="showAlert('Please wait... Resizing your server'); resizeServer();">Resize</button>

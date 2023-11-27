@@ -700,8 +700,6 @@ Resources:
     Properties: 
       AdminCreateUserConfig: 
           AllowAdminCreateUserOnly: True
-      AutoVerifiedAttributes: 
-        - email
       DeviceConfiguration: 
           ChallengeRequiredOnNewDevice: True
           DeviceOnlyRememberedOnUserPrompt: True
@@ -712,12 +710,7 @@ Resources:
               RequireNumbers: True
               RequireSymbols: True
               RequireUppercase: True
-              TemporaryPasswordValidityDays: 3
-      Schema:
-        - Name: email
-          Required: true
-      UsernameAttributes: 
-        - email
+              TemporaryPasswordValidityDays: 30
       UsernameConfiguration: 
           CaseSensitive: false
 
@@ -1185,10 +1178,13 @@ Resources:
       Description: Lambda function to control gaming server instances
       Environment:
         Variables:
+          nano: t3a.nano
           micro: t3a.micro
           small: t3a.small
           medium: t3a.medium
           large: t3a.large
+          xlarge: t3a.xlarge
+          twoxlarge: t3a.2xlarge
           stepfunctionarn: !Sub 'arn:aws:states:${AWS::Region}:${AWS::AccountId}:stateMachine:${AWS::StackName}-mcStateMachine'
       Handler: lambda_function.lambda_handler
       MemorySize: 128
